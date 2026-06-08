@@ -10,6 +10,7 @@ import OrderReceipt from "./pages/OrderReceipt";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Contact from "./pages/Contact";
+import ReservationDetail from "./pages/ReservationDetail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/reserve" element={<Reserve />} />
+            <Route path="/reservation-detail" element={<ReservationDetail />} />
             <Route path="/order" element={<OrderOnline />} />
             <Route path="/receipt" element={<OrderReceipt />} />
             <Route path="/signin" element={<SignIn />} />

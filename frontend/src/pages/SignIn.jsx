@@ -1,9 +1,61 @@
 // src/pages/SignIn.jsx
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
-import signInImg from "../assets/signin-cafe.png"; // gunakan gambar kanan seperti Figma
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import signInImg from "../assets/signin-cafe.png";
+
 
 function SignIn() {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setMessage(data.error || "Login failed");
+        return;
+      }
+
+      localStorage.setItem("user", JSON.stringify(data));
+
+      setMessage("Login successful!");
+
+     setTimeout(() => {
+      const pendingReservationLogin = sessionStorage.getItem(
+        "pendingReservationLogin"
+      );
+
+      if (pendingReservationLogin) {
+        sessionStorage.removeItem("pendingReservationLogin");
+        navigate("/reservation-detail");
+      } else {
+        navigate("/");
+      }
+    }, 800);
+    } catch (error) {
+      setMessage("Cannot connect to backend server");
+      console.error(error);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#4b3934] via-[#9b8f84] to-[#ede7dc] text-[#3E2C24]">
       {/* Navbar */}
@@ -16,13 +68,16 @@ function SignIn() {
           <h1 className="text-4xl font-semibold text-[#3E2C24] mb-2">Welcome Back</h1>
           <p className="text-[#3E2C24] mb-8">Sign in to your account to continue</p>
 
-          <form className="flex flex-col gap-6">
+          <form onSubmit={handleSignIn} className="flex flex-col gap-6">
             <div className="flex flex-col">
               <label className="font-semibold text-[#3E2C24] mb-1">Email</label>
               <input
                 type="email"
                 className="border border-[#ccc] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#a66f5d]"
                 placeholder="Enter your email"
+                value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
               />
             </div>
 
@@ -32,6 +87,9 @@ function SignIn() {
                 type="password"
                 className="border border-[#ccc] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#a66f5d]"
                 placeholder="Enter your password"
+                 value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
               />
             </div>
 

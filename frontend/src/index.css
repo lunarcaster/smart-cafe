@@ -38,3 +38,28 @@
     font-family: "Playfair Display", serif;
   }
 }
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-down {
+  animation: fadeDown 1s ease-out forwards;
+}
+
+.fade-down-delay {
+  animation: fadeDown 2s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.fade-down-slow {
+  animation: fadeDown 3s ease-out 1s forwards;
+  opacity: 0;
+}

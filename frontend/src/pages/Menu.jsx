@@ -20,7 +20,7 @@ function Menu() {
 
       <section className="w-full max-w-[1360px] mx-auto px-8 md:px-20 lg:px-28 py-20">
         {/* Title */}
-        <div className="mb-10 text-center lg:text-left">
+        <div className="mb-10 text-center lg:text-left fade-down">
           <h2 className="great-vibes-regular text-5xl md:text-6xl text-[#d7c689]">
             Our Digital Menu
           </h2>
@@ -30,7 +30,7 @@ function Menu() {
         </div>
 
         {/* Filter kategori */}
-        <div className="flex flex-wrap gap-4 mb-12 text-white/80 font-semibold">
+        <div className="flex flex-wrap gap-4 mb-12 text-white/80 font-semibold fade-down-delay">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -47,7 +47,7 @@ function Menu() {
         </div>
 
         {/* Menu grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 fade-down-slow">
           {filteredMenu.map((item) => (
             <div
               key={item.name}

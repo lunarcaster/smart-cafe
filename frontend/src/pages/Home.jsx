@@ -10,7 +10,7 @@ function Home() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 w-full">
           {/* Text Section */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left fade-down">
             <h2 className="great-vibes-regular text-[#d7c689] text-5xl md:text-6xl lg:text-7xl leading-tight drop-shadow-md">
               Warm Moments, <br />
               Smarter Dining
@@ -32,7 +32,7 @@ function Home() {
           </div>
 
           {/* Image Section */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end fade-down-delay">
             <div className="w-full max-w-[630px] h-[300px] md:h-[380px] rounded-[26px] overflow-hidden shadow-2xl">
               <img
                 src={heroCafe}
