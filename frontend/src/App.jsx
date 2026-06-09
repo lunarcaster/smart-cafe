@@ -15,7 +15,7 @@ import ReservationDetail from "./pages/ReservationDetail";
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
+       <BrowserRouter basename="/lunarcaster-smart-cafe">
         <div className="min-h-screen bg-[#F5F0EB] text-[#3E2C24]">
           <Routes>
             <Route path="/" element={<Home />} />
