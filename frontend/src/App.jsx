@@ -13,9 +13,11 @@ import Contact from "./pages/Contact";
 import ReservationDetail from "./pages/ReservationDetail";
 
 function App() {
+ const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
+
   return (
     <CartProvider>
-       <BrowserRouter basename="/lunarcaster-smart-cafe">
+       <BrowserRouter basename={basename}>
         <div className="min-h-screen bg-[#F5F0EB] text-[#3E2C24]">
           <Routes>
             <Route path="/" element={<Home />} />
