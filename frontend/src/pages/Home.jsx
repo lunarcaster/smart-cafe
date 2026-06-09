@@ -23,18 +23,12 @@ function Home() {
             </p>
 
             <div className="mt-10">
-              {/* <Link
-                to="/reserve"
+              <a
+                href={`${import.meta.env.BASE_URL}#/reserve`}
                 className="inline-block bg-[#a66f5d] text-white font-serif text-lg px-12 py-5 rounded-xl shadow-lg hover:bg-[#8f5f50] transition"
               >
                 RESERVE NOW
-              </Link> */}
-              <a
-                  href={`${import.meta.env.BASE_URL}reserve`}
-                  className="inline-block bg-[#a66f5d] text-white font-serif text-lg px-12 py-5 rounded-xl shadow-lg hover:bg-[#8f5f50] transition"
-                >
-                  RESERVE NOW
-                </a>
+              </a>
             </div>
           </div>
 
