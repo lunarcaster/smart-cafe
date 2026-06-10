@@ -4,5 +4,5 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base:  "/lunarcaster-smart-cafe/",  // This fixes the relative path issue
+  base:  "/smart-cafe/",  // This fixes the relative path issue
 });
